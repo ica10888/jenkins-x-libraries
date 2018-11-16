@@ -12,7 +12,10 @@ jx install --provider=kubernetes \
 --no-tiller
 
 ```
+
+
     * 172.16.20.63 为你的宿主机ip
+    
 2. 国内使用会拉不到google的镜像 ，用 `kubectl edit -n jx xxxxxxx`修改 namaspace jx 中的镜像
     * anjia0532/google-containers.heapster
     * anjia0532/google-containers.addon-resizer
