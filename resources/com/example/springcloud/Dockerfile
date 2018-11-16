@@ -10,6 +10,6 @@ COPY pom.xml target/lib* /opt/lib/
 # we could do with a better way to know the name - or to always create an app.jar or something
 COPY target/*SNAPSHOT.jar /opt/app.jar
 COPY *.sh /opt/
-COPY target/config /opt/config
+#COPY target/config /opt/config
 WORKDIR /opt
 CMD $JAVA_COMMAND
