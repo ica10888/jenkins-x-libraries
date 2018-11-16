@@ -183,7 +183,7 @@ pipeline {
     APP_NAME          = "demo"
     BRANCH_NAME       = "${tag}"    
     PORT              =  8080
-    JAVA_COMMAND      = "java -Xms256M -Xmx512M -jar --spring.profiles.active=test  app.jar"
+    JAVA_COMMAND      = "java -Xms256M -Xmx512M -Dspring.profiles.active=test -jar app.jar"
     MAVEN_COMMAND     = "mvn -Dmaven.test.skip=true package"
     KUBERNETES_CPU    = "1000m"
     KUBERNETES_MENORY = "512Mi"
@@ -220,7 +220,7 @@ pipeline {
     APP_NAME          = "demo"
     BRANCH_NAME       = "${tag}"     
     PORT              =  8080
-    JAVA_COMMAND      = "java -Xms1g -Xmx1g -jar --spring.profiles.active=prod  app.jar"
+    JAVA_COMMAND      = "java -Xms1g -Xmx1g -Dspring.profiles.active=prod -jar app.jar"
     MAVEN_COMMAND     = "mvn -Dmaven.test.skip=true package"
     KUBERNETES_CPU    = "2000m"
     KUBERNETES_MENORY = "1024Mi"
