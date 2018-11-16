@@ -242,4 +242,4 @@ pipeline {
 
 
 ## 4.  demo
-(https://github.com/ica10888/jenkins-x-demo)[https://github.com/ica10888/jenkins-x-demo]
+https://github.com/ica10888/jenkins-x-demo
