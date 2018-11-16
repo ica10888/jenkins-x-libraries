@@ -195,7 +195,6 @@ pipeline {
       stage('maven build'){steps{script{Test.mavenBuild(this)}}}
       stage('skaffol build'){steps{script{Test.skaffolBuild(this)}}}
       stage('helm deploy'){steps{script{Test.helmDeploy(this)}}}
-      stage('predestroy'){steps{script{Test.releaseTag(this)}}}
     }
     post {success {script{Test.releaseTag(this)}}}
 
