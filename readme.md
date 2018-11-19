@@ -206,39 +206,7 @@ pipeline {
 
 
 
-#### prod
 
-
-```groovy
-
-@Library('jxlib') 
-import com.example.springcloud.Prod
-pipeline {
-    agent { label "jenkins-maven" }
-    options { disableConcurrentBuilds() }
-    
-    environment {
-    REPLICA_COUNT     = 2
-    GIT_REPO          = "https://github.com/ica10888/jenkins-x-demo.git"
-    APP_NAME          = "demo"
-    BRANCH_NAME       = "${tag}"     
-    PORT              =  8080
-    JAVA_COMMAND      = "java -Xms1g -Xmx1g -Dspring.profiles.active=prod -jar app.jar"
-    MAVEN_COMMAND     = "mvn -Dmaven.test.skip=true package"
-    KUBERNETES_CPU    = "2000m"
-    KUBERNETES_MENORY = "1024Mi"
-    }
-
-    stages {
-      stage('init item'){steps{script{Prod.initItem(this)}}}
-      stage('library resource'){steps{script{Prod.libraryResource(this)}}}
-      stage('maven build'){steps{script{Prod.mavenBuild(this)}}}
-      stage('skaffol build'){steps{script{Prod.skaffolBuild(this)}}}
-      stage('helm deploy'){steps{script{Prod.helmDeploy(this)}}}
-      stage('predestroy'){steps{script{Prod.predestroy(this)}}}
-      }
-}
-```
 
 
 ## 4.  demo
