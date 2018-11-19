@@ -128,7 +128,7 @@ jx install --provider=kubernetes \
 
 
 ### 1.参数设置
- 使用脚本实现发布，以 springcloud.Dev 为例，**APP_NAME为微服务名，要与需要启动的二级目录名一致**  ，branch = tag 的意思是传入 Git Parameter 插件的参数，也可以自定义，比如想拉取 master 分支，可以branch = "master"。
+ 使用脚本实现发布，以 springcloud.Dev 为例，**APP_NAME为微服务名，要与需要启动的二级目录名一致**  ，BRANCH_NAME="${tag}"意思是传入的参数，也可以自定义，比如想拉取 master 分支，可以BRANCH_NAME="master"。
 
    * **注意：如果服务是一级目录，即目录下就是src目录和pom.xml，会直接在这个目录下mvn build ；如果存在二级目录，会进入二级目录，这个二级目录的名字要和APP_NAME一致，不然进不去。然后在这个目录下mvn build 。**
 
