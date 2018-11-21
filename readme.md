@@ -110,11 +110,13 @@ jx install --provider=kubernetes \
 
 ## 2. 初始化
 
-1. 需要在全局配置  Global Pipeline Libraries 中添加共享仓库： jxlib
+1. 修改Dev.groovy Test.groovy 的line:111 `10.68.22.54:5000` 为你的kubernetes service -n jx 的 jenkins-x-docker-registry 的 ip
 
-2. 建立 pipeline ，在 jenkins 中 新建任务 -> 流水线
+2. 需要在全局配置  Global Pipeline Libraries 中添加共享仓库： jxlib
 
-3. 打开流水线的 配置，然后General -> 参数化构建过程 -> 添加参数
+3. 建立 pipeline ，在 jenkins 中 新建任务 -> 流水线
+
+4. 打开流水线的 配置，然后General -> 参数化构建过程 -> 添加参数
 
    * 添加文本参数 Name 为 tag ，Description  为 tag , 	默认值为 master
 
