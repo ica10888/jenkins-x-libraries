@@ -35,32 +35,15 @@ jx install --provider=kubernetes \
 
 ``` xml
 <settings>
-
-    <!-- sets the local maven repository outside of the ~/.m2 folder for easier mounting of secrets and repo -->
     <localRepository>${user.home}/.mvnrepository</localRepository>
-    <!-- lets disable the download progress indicator that fills up logs -->
     <interactiveMode>false</interactiveMode>
     <mirrors>
-        <mirror>
-          <id>nexus-central</id>
-          <mirrorOf>*,!nexus-public,!releases,!snapshots</mirrorOf>
-          <url>http://你的本地仓库:8081/repository/maven-central/</url>
+         <mirror>      
+          <id>nexus-aliyun</id>    
+          <name>nexus-aliyun</name>  
+          <url>http://maven.aliyun.com/nexus/content/groups/public</url>    
+          <mirrorOf>central</mirrorOf>      
         </mirror>
-<!--    <mirror>
-          <id>nexus-public</id>
-          <mirrorOf>nexus-public</mirrorOf>
-          <url>http://你的本地仓库:8081/repository/maven-public/</url>
-        </mirror>
-        <mirror>
-          <id>releases</id>
-          <mirrorOf>releases</mirrorOf>
-          <url>http://你的本地仓库:8081/repository/maven-releases/</url>
-        </mirror>
-        <mirror>
-          <id>snapshots</id>
-          <mirrorOf>snapshots</mirrorOf>
-          <url>http://你的本地仓库:8081/repository/maven-snapshots/</url>
-        </mirror> -->
     </mirrors>
     <servers>
         <server>
@@ -74,29 +57,7 @@ jx install --provider=kubernetes \
         <password></password>
         </server>
     </servers>
-    <profiles>
-        <profile>
-            <id>nexus</id>
-            <properties>
-                <altDeploymentRepository>local-nexus::default::http://你的本地仓库:8081/repository/maven-snapshots/</altDeploymentRepository>
-                <altReleaseDeploymentRepository>local-nexus::default::http://你的本地仓库:8081/repository/maven-releases/</altReleaseDeploymentRepository>
-                <altSnapshotDeploymentRepository>local-nexus::default::http://你的本地仓库:8081/repository/maven-snapshots/</altSnapshotDeploymentRepository>
-            </properties>
-        </profile>
-        <profile>
-            <id>release</id>
-            <properties>
-                <gpg.executable>gpg</gpg.executable>
-                <gpg.passphrase>mysecretpassphrase</gpg.passphrase>
-            </properties>
-        </profile>
-    </profiles>
-    <activeProfiles>
-        <!--make the profile active all the time -->
-        <activeProfile>nexus</activeProfile>
-    </activeProfiles>
-
-
+</settings>
 ```
 
 
