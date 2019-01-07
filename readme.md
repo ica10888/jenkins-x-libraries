@@ -118,7 +118,7 @@ pipeline {
     PORT              =  8080
     JAVA_COMMAND      = "java -Xms256M -Xmx512M -jar app.jar"
     MAVEN_COMMAND     = "mvn -Dmaven.test.skip=true package"
-    KUBERNETES_CPU    = "1000m"
+    KUBERNETES_CPU    = "500m"
     KUBERNETES_MENORY = "512Mi"
     }
 
